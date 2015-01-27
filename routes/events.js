@@ -16,7 +16,7 @@ streams: [
 
 /* POST /events */
 router.post('/', function(req, res, next) {
-  log.info(req.body);
+  log.info({req: bunyan.stdSerializers.req(req) , data: req.body}, "request");
   res.json({status:"ok"});
 });
 
